@@ -11,7 +11,7 @@ you can learn about and download the dataset from [ACDC 2017](https://www.creati
 
 这是一个分割任务项目
 
-在这个项目中还包含了一个使用网页设计的分割系统。其位于 `webProject` 中。
+在这个项目中还包含了一个使用网页设计的分割系统，使用Flask框架。其位于 `webProject` 中。
 
 你可以利用 `Configuration.md` 文件中的描述来配置环境并运行这个项目。
 
@@ -21,8 +21,11 @@ the project include a web subproject.
 
 ### webProject
 
+it use Flask
+
 web page:
 
 ![web page](./webProject.jpg)
+
 
 
