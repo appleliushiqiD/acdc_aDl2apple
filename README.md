@@ -28,4 +28,12 @@ web page:
 ![web page](./webProject.jpg)
 
 
+### Thanks
+
+i get many helps from:
+[acdc wangtao2001](https://github.com/wangtao2001/acdc)
+and
+[acdc\_segenmter baumgach](https://github.com/baumgach/acdc_segmenter)
+
+i appreciate them.
 
