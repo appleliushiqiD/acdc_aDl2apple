@@ -8,7 +8,7 @@ train_folder = '/mnt/workspace/ACDC/database/trainingPng'
 test_folder = '/mnt/workspace/ACDC/database/testingPng'
 
 modelset = {'fcn': FCN8s(), 'unet': UNet(), 'unetm': UNetM(), 'unetm12': UNetM12(), 'unetm34': UNetM34(), 'aunet': AUNet(), 'aunetm12': AUNetM12(), 'aunetm34': AUNetM34()}
-model_name = 'aunetm34'
+model_name = 'aunetm12'
 model = modelset[model_name]
 
 metricset = {'dice': dice_multi, 'iou': iou_multi, 'hd95': hd95_multi}
@@ -32,21 +32,29 @@ train_type = "metr"
 
 start_epoch = 0
 
+metr_type = "test"
+metr_epoch = 40
+
 base_name = '%s-%s-%s'%(model_name, "crop" if crop else "rescale", "diff" if addDiff else "nodiff")
 
-model_load_path = os.path.join(project_path, 'model/%s-e%02d-l*.pth'%(base_name, start_epoch+60))
-# model_load_path = os.path.join(project_path, 'model/%s-*-test-e%02d-*.pth'%(base_name, ))
+model_load_path = os.path.join(project_path, 'model/%s-%s-e%02d-*.pth'%(base_name, metr_type, metr_epoch))
 
 model_save_path = os.path.join(project_path, 'model/%s'%(base_name))
 
 img_path = os.path.join(project_path, 'img/%s-e%02d'%(base_name, start_epoch+epochs))
 
-metr_path = os.path.join(project_path, 'metricdata/%s-e%02d'%(base_name, start_epoch+epochs))
+metr_path = os.path.join(project_path,
+                         'metricdata/%s-%s-e%02d.hdf5'%(base_name,
+                                                   'train' if train_type=="train" \
+                                                   else "metric-%s"%("train" if metr_type=="train" else "test"),
+                                                   metr_epoch))
 
-log_dir = os.path.join(project_path, "logdir" if \
-                       train_type=="train" else "mtlogdir-train")
-log_path = os.path.join(log_dir, '%s-e%02d-log.txt'%(base_name, start_epoch+epochs) if \
-                        train_type=="train" else '%s-e%02d-metric-log.txt'%(base_name, start_epoch+epochs))
+log_dir = os.path.join(project_path, "logdir" if train_type=="train" else "mtlogdir")
+
+log_path = os.path.join(log_dir,
+                        '%s-train-e%02d-log.txt'%(base_name, start_epoch+epochs) \
+                        if train_type=="train" \
+                        else '%s-metric_%s-e%02d-log.txt'%(base_name, metr_type, metr_epoch))
 
 
 

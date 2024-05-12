@@ -68,7 +68,7 @@ logging.info(' - Test:')
 logging.info(len(test_dataloader.dataset))
 
 if tcfg.train_type =="metr":
-    metr_h5_file = tcfg.metr_path + '-metrs.hdf5'
+    metr_h5_file = tcfg.metr_path
     mhd5f = h5py.File(metr_h5_file, "w")
 
     logging.info('*'*40)
@@ -145,7 +145,7 @@ save_load_model(model, save_path)
 
 """ save loss & metric data """
 if tcfg.train_type == "train":
-    train_h5_file = tcfg.metr_path + '-train_data.hdf5'
+    train_h5_file = tcfg.metr_path
     train_h5 = h5py.File(train_h5_file, "w")
 
     train_h5.create_dataset("trls", data=train_all_loss)
