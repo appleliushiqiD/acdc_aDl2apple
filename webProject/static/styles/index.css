@@ -1,0 +1,39 @@
+/* *{ padding: 0; margin: 0 } */
+
+a{ text-decoration: none }
+img{ border: none; height: 250px; width: 250px; border-radius: 2%; }
+
+.pubCon{ width: 1200px; margin: auto }
+
+
+.header{ height: 60px; display:flex; justify-content: center; background: linear-gradient(45deg, #e0e1db, #cee4da); }
+
+.viewBox{ display: flex; justify-content: space-around }
+.viewBox img{ position: absolute; background: linear-gradient(-45deg, #a8cecf, #cee4da) }
+.viewBox div{ position: relative; height: 250px; width: 250px; }
+
+.viewBox div img:first-child{ animation: am 20s ease-in-out infinite; z-index: 1 }
+
+@keyframes am {
+  0%, 40% { opacity: 1 }
+  50%, 90% { opacity: 0 }
+}
+
+.testBox{ display: flex; justify-content: center; }
+.testBox img{ background: linear-gradient(45deg, #cee4da, #a8cecf) }
+.testBox .selectCon{ padding: 10px; margin-right: 10px;  display: flex; border: dotted 2px #a8cecf; border-radius: 10px }
+.testBox .selectCon .option{ margin-right: 20px; border: solid 4px #a8cecf; border-radius: 5px; background: linear-gradient(#cee4da, #bfe9ff) } 
+.testBox .selectCon .option div{ margin: 20px 20px 0 } 
+.testBox .selectCon .option .submit{ margin-top: 40px; width: 50%; display: flex; justify-content: space-around } 
+#submit{ height: 24px; width: 50px; border: none; border-radius: 10px; background: #72d572 }
+#reset{ height: 24px; width: 50px; border: none; border-radius: 10px; background: #bcaaa4}
+.testBox .selectCon .selectImg img{ display: block  }
+.testBox .selectCon .selectImg input{ margin-top: 10px; width: 250px }
+.testBox .testSeg{ padding-top: 10px }
+.testBox .testSeg label{ display: block; text-align: center; margin-top: 10px }
+
+.footer{ height: 60px; display: flex; justify-content: center; align-items: center; border-top: solid 2px black}
+.footer .linkGithub{ color: #2d312f; line-height: 30px }
+
+
+

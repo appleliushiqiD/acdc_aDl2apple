@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>MRI Cardiac Segmentation</title>
+		<link rel="icon" href="{{ url_for('static',filename='favicon.ico') }}" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='styles/index.css') }}" />
+		<script src="{{ url_for('static',filename='scripts/index.js') }}" defer ></script>
+	</head>
+	<body>
+		<header class="header pubCon">
+			<h1>MRI Cardiac Segmentation</h1>
+		</header>
+
+		<section class="viewCon pubCon">	
+			<h2>View</h2>
+			<div class="viewBox">
+				<div class="viewImg">
+					<img class="mrimg" src="./static/images/view1.png" title="Input"/>
+					<img class="mrimg" src="{{ url_for('static',filename='images/view2.png') }}" title="Input"/>
+				</div>
+				<div class="viewSeg play">
+					<img class="segimg" src="{{ url_for('static',filename='images/viewpre1.png') }}" title="Output"/>
+					<img class="segimg" src="{{ url_for('static',filename='images/viewpre2.png') }}" title="Output"/>
+				</div>
+				<div class="viewGt play">
+					<img class="gtimg" src="{{ url_for('static',filename='images/viewgt1.png') }}" title="Ground Truth" />
+					<img class="gtimg" src="{{ url_for('static',filename='images/viewgt2.png') }}" title="Ground Truth" />
+				</div>
+			</div>
+		</section>
+
+		<section class="testCon pubCon">
+			<h2>Test</h2>
+			<div class="testBox">
+				<form class="selectCon" id="testform" action="" method="post" enctype="multipart/form-data" >
+					<div class="option">
+						<div class="model" id="model">
+							<label for="model">Model: </label>
+							<br />
+							<input type="radio" name="model" id="unet" value="unet" checked />
+							<label for="unet">UNet</label>
+							<input type="radio" name="model" id="aunet" value="aunet" />
+							<label for="aunet">Attention UNet</label>
+							<input type="radio" name="model" id="unetm" value="unetm" />
+							<label for="aunet">Modified UNet</label>
+							<input type="radio" name="model" id="fcn" value="fcn" />
+							<label for="fcn">FCN8s</label>
+						</div>
+						<div class="cs" id="cs">
+							<label for="cs">Crop or Rescale: </label>
+							<br />
+							<input type="radio" name="cs" id="crop" value="crop" checked />
+							<label for="crop">Crop</label>
+							<input type="radio" name="cs" id="rescale" value="rescale" />
+							<label for="rescale">Rescale</label>
+
+						</div>
+						<div class="color" id="color">
+							<label for="color">Colourful: </label>
+							<br />
+							<input type="radio" name="cotype" id="gray" value="gray" />
+							<label for="gray">Gray</label>
+							<input type="radio" name="cotype" id="colourful" value="colourful" />
+							<label for="colourful">Colourful</label>
+							<input type="radio" name="cotype" id="colourfulmask" value="colourfulmask" checked />
+							<label for="colourfulmask">Colourful Mask</label>
+
+						</div>
+						<div class="submit">
+							<input type="submit" id="submit" value="Submit" />
+							<input type="reset" id="reset" value="Reset" />
+						</div>
+					</div>
+					
+					<div class="selectImg">
+						<img class="segimg" id="input_show" src="" title="Input image" />
+						<input type="file" name="file" id="input_file" required accept=".png, .jpg, .jpeg" value="" />
+					</div>
+					
+
+				</form>
+
+				<div class="testSeg">
+					<img class="segimg" id="testSegImg" src="" title="Predict image" />
+					<label for="testSegImg">Result</label>
+				</div>
+			</div>
+
+		</section>
+
+		<section class="aboutACDC pubCon">
+			<h2>About</h2>
+
+			<a class="linkACDC" href="https://www.creatis.insa-lyon.fr/Challenge/acdc/index.html">Automated Cardiac Diagnosis Challenge (ACDC)</a>
+
+			<h4 class="overview">overview</h4>
+			<p>The goal of this contest was two-fold:</p>
+			<p>
+			<ul>
+				<li>compare the performance of automatic methods on the segmentation of the left ventricular endocardium and epicardium as the right ventricular endocardium for both end diastolic and end systolic phase instances;</li>
+				<li>compare the performance of automatic methods for the classification of the examinations in five classes (normal case, heart failure with infarction, dilated cardiomyopathy, hypertrophic cardiomyopathy, abnormal right ventricle).</li>
+			</ul>
+			</p>
+			<p>
+			This challenge took place during the MICCAI 2017 conference. It remained open until the end of 2022 for new submissions.This challenge is now closed.
+			</p>
+
+		</section>
+
+		<section class="statement pubCon">
+			<h2>Statement</h2>
+			<p>The content of this webpage is only for testing the effect of the models and has no exact reference value.</p>
+		</section>
+
+		<footer class="footer pubCon">
+			<a class="linkGithub" href="https://github.com/appleliushiqiD" >@Github</a>
+
+		</footer>
+
+	</body>
+</html>
+
