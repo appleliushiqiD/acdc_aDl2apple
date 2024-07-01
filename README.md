@@ -1,6 +1,5 @@
 # ACDC segmenter
 
-
 ### Data source
 
 you can learn about and download the dataset from [ACDC 2017](https://www.creatis.insa-lyon.fr/Challenge/acdc/index.html)
@@ -30,10 +29,7 @@ web page:
 
 ### Thanks
 
-i get many helps from:
+I get many helps from:
 [acdc wangtao2001](https://github.com/wangtao2001/acdc)
 and
 [acdc\_segenmter baumgach](https://github.com/baumgach/acdc_segmenter)
-
-i appreciate them.
-
